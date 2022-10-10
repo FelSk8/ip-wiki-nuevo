@@ -1,0 +1,11 @@
+<mat-card class="example-card">
+    <mat-card-title>{{article.title}}</mat-card-title>
+    <mat-card-content>
+      <p [innerHTML]="article.snippet"></p>
+      <p>{{article.timestamp}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>

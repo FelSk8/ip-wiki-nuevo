@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ArticlesI } from './interface/wiki';
+import { SearchService } from './services/search.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  articles$!:Observable<ArticlesI[]>;
   title = 'api-wiki-nuevo';
+  constructor(
+    private searchSvc: SearchService
+  ){ }
+
+  onSearch(search: string){
+    
+    this.articles$ = this.searchSvc.getSearch(search);
+    console.log(this.articles$);
+  }
+
+  
+
+ 
 }
